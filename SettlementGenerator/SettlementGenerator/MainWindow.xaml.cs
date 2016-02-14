@@ -21,5 +21,9 @@ namespace SettlementGenerator {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void HelpMenuListBox_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
+           
+        }
     }
 }
