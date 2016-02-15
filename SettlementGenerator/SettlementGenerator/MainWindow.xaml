@@ -36,7 +36,34 @@
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Settlement Generator Express</TextBlock>
                     </DockPanel>
                 </materialDesign:ColorZone>
-                <Button Width="200" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center">Generate Settlement</Button>
+                <Grid Margin="16" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="22" materialDesign:TextFieldAssist.Hint="Name" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="22" materialDesign:TextFieldAssist.Hint="Matter Number" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+                    <ComboBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="16 0 8 0" materialDesign:TextFieldAssist.Hint="Client" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="22" materialDesign:TextFieldAssist.HintOpacity=".5">
+                        <ComboBoxItem>HRA2</ComboBoxItem>
+                        <ComboBoxItem>DCA1</ComboBoxItem>
+                        <ComboBoxItem>NYPD1</ComboBoxItem>
+                        <ComboBoxItem>NYPD3</ComboBoxItem>
+                        <ComboBoxItem>ECB1</ComboBoxItem>
+                        <ComboBoxItem>DOF1</ComboBoxItem>
+                        <ComboBoxItem>DCAS1</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                
+                <Button Width="200" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 40">Begin Settlement</Button>
             </DockPanel>
         </materialDesign:DrawerHost>
     </materialDesign:DialogHost>
