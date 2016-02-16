@@ -61,6 +61,7 @@
                         <ComboBoxItem>DOF1</ComboBoxItem>
                         <ComboBoxItem>DCAS1</ComboBoxItem>
                     </ComboBox>
+                    <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="22" materialDesign:TextFieldAssist.Hint="Amount"></TextBox>
                 </Grid>
                 
                 <Button Width="200" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 40">Begin Settlement</Button>
