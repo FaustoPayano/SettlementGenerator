@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:SettlementGenerator"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Settlement Generator" Height="800" Width="1100"
+        Title="Settlement Generator" Height="1000" Width="1100"
           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
->
+        FontSize="16">
     <materialDesign:DialogHost Identifier="SettlementDialog">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=HelpMenuButton, Path=IsChecked}">
             <materialDesign:DrawerHost.LeftDrawerContent>
@@ -33,38 +33,79 @@
                                 <Button Content="Github"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Settlement Generator Express</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Settlement Generator Express</TextBlock>
                     </DockPanel>
                 </materialDesign:ColorZone>
                 <Grid Margin="16" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="22" materialDesign:TextFieldAssist.Hint="Name" materialDesign:TextFieldAssist.HintOpacity=".5"/>
-                    <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="22" materialDesign:TextFieldAssist.Hint="Matter Number" materialDesign:TextFieldAssist.HintOpacity=".5"/>
-                    <ComboBox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="16 0 8 0" materialDesign:TextFieldAssist.Hint="Client" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="22" materialDesign:TextFieldAssist.HintOpacity=".5">
-                        <ComboBoxItem>HRA2</ComboBoxItem>
-                        <ComboBoxItem>DCA1</ComboBoxItem>
-                        <ComboBoxItem>NYPD1</ComboBoxItem>
-                        <ComboBoxItem>NYPD3</ComboBoxItem>
-                        <ComboBoxItem>ECB1</ComboBoxItem>
-                        <ComboBoxItem>DOF1</ComboBoxItem>
-                        <ComboBoxItem>DCAS1</ComboBoxItem>
-                    </ComboBox>
-                    <TextBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="22" materialDesign:TextFieldAssist.Hint="Amount"></TextBox>
+                    <TextBlock Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Common Fields</TextBlock>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="0" Kind="AccountAlert"  Margin="0,20,0,0" HorizontalAlignment="Right"/>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="0" Kind="Key"  Margin="0,60,0,0" HorizontalAlignment="Right"/>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="0" Kind="Tie"  Margin="0,100,0,0" HorizontalAlignment="Right"/>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="2">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+                            <TextBox VerticalAlignment="Center" Margin="16 0 10 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="First" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+                            <TextBox VerticalAlignment="Center" Margin="16 0 1 0" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Last" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+                        </StackPanel>
+                        <TextBox VerticalAlignment="Center" Margin="16,0,50,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Matter Number" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+                        <ComboBox VerticalAlignment="Center" Margin="16,0,50,0" materialDesign:TextFieldAssist.Hint="Client" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  materialDesign:TextFieldAssist.HintOpacity=".5">
+                            <ComboBoxItem>HRA2</ComboBoxItem>
+                            <ComboBoxItem>DCA1</ComboBoxItem>
+                            <ComboBoxItem>NYPD1</ComboBoxItem>
+                            <ComboBoxItem>NYPD3</ComboBoxItem>
+                            <ComboBoxItem>ECB1</ComboBoxItem>
+                            <ComboBoxItem>DOF1</ComboBoxItem>
+                            <ComboBoxItem>DCAS1</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="2" Kind="CurrencyUsd"  Margin="0,20,0,0" HorizontalAlignment="Right"/>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="2" Kind="CurrencyUsd"  Margin="0,60,0,0" HorizontalAlignment="Right"/>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="2" Kind="CurrencyUsd"  Margin="0,102,0,0" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Fiscal Fields</TextBlock>
+                    <StackPanel Grid.Row="2" Grid.Column="3">
+                        <TextBox VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Base Amount"/>
+                        <TextBox VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Default Amount" Text="0.00"/>
+                        <TextBox VerticalAlignment="Center" Margin="16 0 8 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Current Total"/>
+                    </StackPanel>
+                    <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Terms of Settlement</TextBlock>
+                    <StackPanel Grid.Row="2" Grid.Column="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox VerticalAlignment="Center" Margin="16 0 10 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Settlement Amount" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+                            <TextBox VerticalAlignment="Center" Margin="0 0 1 0" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Payments" materialDesign:TextFieldAssist.HintOpacity=".5" Name="paymentTextBox" TextChanged="TextBoxBase_OnTextChanged"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="4" Kind="CurrencyUsd"  Margin="0,19,0,0" HorizontalAlignment="Right"/>
+                    <materialDesign:PackIcon Grid.Row="2" Grid.Column="5" Kind="EmoticonHappy"  Margin="250,20,0,0" HorizontalAlignment="Center" Name="PaymentEmoticon"/>
+                    <StackPanel Grid.Row="2" Grid.Column="7">
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton Name="NoActionTakenRadioButton" Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 8" VerticalAlignment="Center" IsChecked="True">No Action Taken</RadioButton>
+                            <RadioButton Name="ActionTakenRadioButton" Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 8" VerticalAlignment="Center" Checked="ToggleButton_OnChecked" Unchecked="NoActionTakenRadioButton_OnChecked">Action Taken</RadioButton>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox Name="TypeOfActionTakenComboBox" Margin="0,0,0,0" HorizontalAlignment="Left" materialDesign:TextFieldAssist.Hint="Type of Action" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:TextFieldAssist.HintOpacity=".5" Width="138" Visibility="Collapsed">
+                                <ComboBoxItem>Suit Filed</ComboBoxItem>
+                                <ComboBoxItem>JMT Entered</ComboBoxItem>
+                            </ComboBox>
+                            <TextBox Name="UniqueIdentifierTextBox" VerticalAlignment="Center" Margin="30 0 0 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Identifier" materialDesign:TextFieldAssist.HintOpacity=".5" Width="102" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
-                
-                <Button Width="200" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 40">Begin Settlement</Button>
+                <Button Width="200" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 40">Generate Settlement</Button>
             </DockPanel>
         </materialDesign:DrawerHost>
     </materialDesign:DialogHost>

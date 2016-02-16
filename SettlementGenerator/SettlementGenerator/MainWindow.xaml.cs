@@ -22,8 +22,32 @@ namespace SettlementGenerator {
             InitializeComponent();
         }
 
-        private void HelpMenuListBox_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e) {
-           
+        private void HelpMenuListBox_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e) {}
+
+        private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e) {
+            int numberOfPayments;
+
+            if (Int32.TryParse(paymentTextBox.Text, out numberOfPayments)) {
+                if (numberOfPayments > 5) {
+                    PaymentEmoticon.Kind = MaterialDesignThemes.Wpf.PackIconKind.EmoticonSad;
+                }
+                else {
+                    PaymentEmoticon.Kind = MaterialDesignThemes.Wpf.PackIconKind.EmoticonHappy;
+                }
+            }
+        }
+
+        private void ToggleButton_OnChecked(object sender, RoutedEventArgs e) {
+            TypeOfActionTakenComboBox.Visibility = Visibility.Visible;
+            UniqueIdentifierTextBox.Visibility = Visibility.Visible;
+
+        }
+
+        private void NoActionTakenRadioButton_OnChecked(object sender, RoutedEventArgs e) {
+            TypeOfActionTakenComboBox.SelectedIndex = -1;
+            UniqueIdentifierTextBox.Text = String.Empty;
+            TypeOfActionTakenComboBox.Visibility = Visibility.Collapsed;
+            UniqueIdentifierTextBox.Visibility = Visibility.Collapsed;
         }
     }
 }
