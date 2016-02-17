@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:SettlementGenerator"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Settlement Generator" Height="1000" Width="1100"
+        Title="Settlement Generator" Height="700" Width="1100"
           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        FontSize="16">
+        FontSize="16"
+        ResizeMode="CanMinimize">
     <materialDesign:DialogHost Identifier="SettlementDialog">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=HelpMenuButton, Path=IsChecked}">
             <materialDesign:DrawerHost.LeftDrawerContent>
@@ -41,6 +42,9 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -59,7 +63,7 @@
                     <materialDesign:PackIcon Grid.Row="2" Grid.Column="0" Kind="Tie"  Margin="0,100,0,0" HorizontalAlignment="Right"/>
                     <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="2">
                         <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
-                            <TextBox VerticalAlignment="Center" Margin="16 0 10 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="First" materialDesign:TextFieldAssist.HintOpacity=".5"/>
+                            <TextBox VerticalAlignment="Center" Margin="16 0 10 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="First" materialDesign:TextFieldAssist.HintOpacity=".5" />
                             <TextBox VerticalAlignment="Center" Margin="16 0 1 0" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Last" materialDesign:TextFieldAssist.HintOpacity=".5"/>
                         </StackPanel>
                         <TextBox VerticalAlignment="Center" Margin="16,0,50,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Matter Number" materialDesign:TextFieldAssist.HintOpacity=".5"/>
@@ -104,8 +108,17 @@
                             <TextBox Name="UniqueIdentifierTextBox" VerticalAlignment="Center" Margin="30 0 0 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:TextFieldAssist.Hint="Identifier" materialDesign:TextFieldAssist.HintOpacity=".5" Width="102" Visibility="Collapsed"/>
                         </StackPanel>
                     </StackPanel>
+                    <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
+                        <TextBox TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="32 0 0 0" Width="650" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" materialDesign:TextFieldAssist.Hint="Enter Additional Memo notes here...." Height="200" />
+                    </StackPanel>
+                    <Button Grid.Row="6" Grid.Column="7" Style="{StaticResource MaterialDesignRaisedDarkButton}" Margin="90 0 8 0"
+                    ToolTip="Generate Settlement Memo based on entered parameters..." Click="ButtonBase_OnClick">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FileSend" />
+                            <TextBlock Text="Begin Settlement"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
-                <Button Width="200" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 40 40">Generate Settlement</Button>
             </DockPanel>
         </materialDesign:DrawerHost>
     </materialDesign:DialogHost>

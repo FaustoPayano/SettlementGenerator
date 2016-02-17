@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SettlementGenerator.Model;
 
 namespace SettlementGenerator {
     /// <summary>
@@ -48,6 +50,22 @@ namespace SettlementGenerator {
             UniqueIdentifierTextBox.Text = String.Empty;
             TypeOfActionTakenComboBox.Visibility = Visibility.Collapsed;
             UniqueIdentifierTextBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
+            var settlementGeneratorWorker = new BackgroundWorker();
+            settlementGeneratorWorker.DoWork += new DoWorkEventHandler(GenerateSettlement);
+            settlementGeneratorWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(PostSettlementGeneration);
+            settlementGeneratorWorker.RunWorkerAsync();
+        }
+
+        private void PostSettlementGeneration(object sender, RunWorkerCompletedEventArgs e) {
+            MessageBox.Show("Completed");
+        }
+
+        private void GenerateSettlement(object sender, DoWorkEventArgs e) {
+            var settlementMemo = new SettlementMemo();
+
         }
     }
 }
