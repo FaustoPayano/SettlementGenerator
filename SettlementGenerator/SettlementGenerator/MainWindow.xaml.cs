@@ -60,11 +60,11 @@ namespace SettlementGenerator {
         }
 
         private void PostSettlementGeneration(object sender, RunWorkerCompletedEventArgs e) {
-            MessageBox.Show("Completed");
         }
 
         private void GenerateSettlement(object sender, DoWorkEventArgs e) {
             var settlementMemo = new SettlementMemo();
+           
 
         }
     }
